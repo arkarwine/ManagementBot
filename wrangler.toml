@@ -1,3 +1,4 @@
+account_id = '42814f6bd20b3602f788e0a07a8fe4b6'
 name = "workers"
 main = "src/bot.ts"
 compatibility_date = "2024-02-08"
