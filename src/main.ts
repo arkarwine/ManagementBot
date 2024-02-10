@@ -1,19 +1,16 @@
-// import { Bot } from "grammy";
-// import { arkary } from "./bot";
-
-// const bot = new Bot(process.env.BOT_TOKEN!);
-// bot.use(arkary);
-
-// bot.start();
-
 import express from "express";
-const app = express();
-const port = process.env.PORT || 8080;
+import { Bot, webhookCallback } from "grammy";
+import { arkary } from "./bot";
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
+const bot = new Bot(process.env.BOT_TOKEN!);
+bot.use(arkary);
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-});
+if (process.env.NODE_ENV === "DEVELOPMENT") {
+    bot.start();
+} else {
+    const port = process.env.PORT || 3000;
+    const app = express();
+    app.use(express.json());
+    app.use(`/${bot.token}`, webhookCallback(bot, "express"));
+    app.listen(port, () => console.log(`listening on port ${port}`));
+}

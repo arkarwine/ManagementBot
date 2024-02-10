@@ -14,6 +14,6 @@
         "isolatedModules": true,
         "moduleResolution": "Node",
         "lib": ["ES6"],
-        "types": ["node", "@grammyjs/types"]
+        "types": ["node"]
     }
 }
