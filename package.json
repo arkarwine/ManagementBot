@@ -5,8 +5,8 @@
     "type": "module",
     "scripts": {
         "build": "tsc",
-        "start": "node dist/main.js",
-        "dev": "npx -y tsx src/main.ts"
+        "start": "node dist/main.mjs",
+        "dev": "npx -y tsx src/main.mts"
     },
     "dependencies": {
         "express": "^4.18.2",

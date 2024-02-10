@@ -1,6 +1,6 @@
 import express from "express";
 import { Bot, webhookCallback } from "grammy";
-import { arkary } from "./bot.js";
+import { arkary } from "./bot.mjs";
 
 const bot = new Bot(process.env.BOT_TOKEN!);
 bot.use(arkary);
