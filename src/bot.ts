@@ -1,5 +1,5 @@
-import { Bot } from 'grammy';
+import { Composer } from 'grammy';
 
-export const bot = new Bot(process.env.BOT_TOKEN!);
+export const arkary = new Composer();
 
-bot.on('message', (ctx) => ctx.reply(ctx.message.text! + 'local'));
+arkary.on('message', (ctx) => ctx.reply(ctx.message.text! + 'local'));
