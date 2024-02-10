@@ -9,6 +9,7 @@ arkary.on("message", async (ctx) => {
         quality: "highestaudio",
         filter: "audioonly",
     });
-    ctx.replyWithAudio(new InputFile(audio));
-    await ctx.api.deleteMessage(ctx.chat.id, wait.message_id);
+    ctx.replyWithAudio(new InputFile(audio)).then(
+        async () => await ctx.api.deleteMessage(ctx.chat.id, wait.message_id)
+    );
 });
