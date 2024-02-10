@@ -8,7 +8,7 @@ bot.use(arkary);
 if (process.env.NODE_ENV === "DEVELOPMENT") {
     bot.start();
 } else {
-    const port = process.env.PORT || 3000;
+    const port = 3000;
     const app = express();
     app.use(express.json());
     app.use(`/${bot.token}`, webhookCallback(bot, "express"));
