@@ -1,25 +1,24 @@
 {
-	"name": "ahhhhh",
-	"version": "1.0.0",
-	"description": "",
-	"main": "bot.js",
-	"type": "module",
-	"scripts": {
-		"dev": "npx tsx src/local.ts"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@types/node": "^20.11.17",
-		"ts-node": "^10.9.2",
-		"tsx": "^4.7.0",
-		"typescript": "^5.3.3",
-		"wrangler": "^3.28.1"
-	},
-	"dependencies": {
-		"@cloudflare/workers-types": "^4.20240208.0",
-		"@grammyjs/types": "^3.4.6",
-		"grammy": "^1.20.3"
-	}
+    "name": "ahhhhh",
+    "version": "1.0.0",
+    "description": "",
+    "main": "bot.js",
+    "type": "module",
+    "scripts": {
+        "start": "npx tsx src/main.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@grammyjs/types": "^3.4.6",
+        "@types/node": "^20.11.17",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.7.0",
+        "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "grammy": "^1.20.3",
+        "ytdl-core": "^4.11.5"
+    }
 }
