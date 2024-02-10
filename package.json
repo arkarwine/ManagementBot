@@ -1,26 +1,16 @@
 {
-    "name": "ahhhhh",
-    "version": "1.0.0",
-    "description": "",
-    "main": "bot.js",
-    "type": "module",
-    "scripts": {
-        "start": "npx tsx src/main.ts"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@grammyjs/types": "^3.4.6",
-        "@types/node": "^20.11.17",
-        "ts-node": "^10.9.2",
-        "tsx": "^4.7.0",
-        "typescript": "^5.3.3"
-    },
-    "dependencies": {
-        "@types/express": "^4.17.21",
-        "express": "^4.18.2",
-        "grammy": "^1.20.3",
-        "ytdl-core": "^4.11.5"
-    }
+  "name": "ahhhhh",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
+  }
 }
