@@ -1,19 +1,19 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"module": "esnext",
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"strict": true,
-		"useUnknownInCatchVariables": false,
-		"noImplicitAny": true,
-		"skipLibCheck": true,
-		"allowSyntheticDefaultImports": true,
-		"isolatedModules": true,
-		"moduleResolution": "Node",
-		"lib": ["ES6"],
-		"types": ["node", "@grammyjs/types", "@cloudflare/workers-types"]
-	}
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "esnext",
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "useUnknownInCatchVariables": false,
+        "noImplicitAny": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true,
+        "moduleResolution": "Node",
+        "lib": ["ES6"],
+        "types": ["node", "@grammyjs/types"]
+    }
 }
