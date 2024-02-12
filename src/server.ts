@@ -7,12 +7,18 @@ import { arkary } from "./bot.ts";
 
 Deno.serve(async (req) => {
     if (req.method === "POST") {
-        const bot = new Bot(Deno.env.get("BOT_TOKEN")!);
-        bot.use(arkary);
+        try {
+            const bot = new Bot(Deno.env.get("BOT_TOKEN")!);
+            bot.use(arkary);
 
-        const handleUpdate = webhookCallback(bot, "std/http");
+            const handleUpdate = webhookCallback(bot, "std/http");
 
-        return await handleUpdate(req);
+            return await handleUpdate(req);
+        } catch (e) {
+            console.log(e.message);
+
+            return new Response(e.message);
+        }
     }
     return new Response();
 });
