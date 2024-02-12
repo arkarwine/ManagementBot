@@ -1,9 +1,9 @@
-import { Bot } from "grammy";
-import { arkary } from "./bot";
+import { Bot } from "https://deno.land/x/grammy@v1.20.3/bot.ts";
+import { arkary } from "./bot.ts";
 
-const bot = new Bot(process.env.BOT_TOKEN!);
+const bot = new Bot(Deno.env.get("BOT_TOKEN")!);
 bot.use(arkary);
 
-console.log(process.env.BOT_TOKEN!);
+console.log(Deno.env.get("BOT_TOKEN")!);
 
 bot.start();

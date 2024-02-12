@@ -9,7 +9,7 @@ import {
     Streams,
     Tab,
     Video,
-} from "./types";
+} from "./types.ts";
 
 export default class PipedAPI {
     host: string;

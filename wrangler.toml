@@ -1,7 +1,0 @@
-name = "arkary"
-main = "src/server.ts"
-compatibility_date = "2024-02-11"
-compatibility_flags = [ "nodejs_compat" ]
-
-[vars]
-BOT_TOKEN="6741337977:AAF1_ah4m5u3lDhUn-SVkBevNOua84EiU6A"

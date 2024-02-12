@@ -1,5 +1,6 @@
-import { Composer, InputFile } from "grammy";
-import PipedAPI from "./PipedApi";
+import { Composer, InputFile } from "https://deno.land/x/grammy@v1.20.3/mod.ts";
+
+import PipedAPI from "./PipedApi/index.ts";
 
 const YOUTUBE_URL_REGEX =
     /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]+).*/;

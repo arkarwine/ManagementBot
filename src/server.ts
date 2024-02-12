@@ -1,32 +1,18 @@
-import { Bot, webhookCallback } from "grammy";
-import { UserFromGetMe } from "grammy/types";
-import { arkary } from "./bot.js";
+import {
+    Bot,
+    webhookCallback,
+} from "https://deno.land/x/grammy@v1.20.3/mod.ts";
+import { arkary } from "./bot.ts";
+// You might modify this to the correct way to import your `Bot` object.
 
-interface Environment {
-    BOT_TOKEN: string;
-}
+Deno.serve(async (req) => {
+    if (req.method === "POST") {
+        const bot = new Bot(Deno.env.get("BOT_TOKEN")!);
+        bot.use(arkary);
 
-let botInfo: UserFromGetMe | undefined = undefined;
+        const handleUpdate = webhookCallback(bot, "std/http");
 
-export default {
-    async fetch(request: Request, env: Environment) {
-        try {
-            const bot = new Bot(env.BOT_TOKEN, { botInfo });
-            bot.use(arkary);
-
-            if (botInfo === undefined) {
-                await bot.init();
-                botInfo = bot.botInfo;
-            }
-
-            const callback = webhookCallback(bot, "cloudflare-mod");
-
-            return await callback(request);
-        } catch (e) {
-            console.log(e.message);
-            console.log(env.BOT_TOKEN);
-
-            return new Response(e.message);
-        }
-    },
-};
+        return await handleUpdate(req);
+    }
+    return new Response();
+});
