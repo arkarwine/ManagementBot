@@ -13,9 +13,7 @@ import {
 
 export default class PipedAPI {
     host: string;
-    constructor(
-        host: string = "https://api.allorigins.win/raw?url=https://pipedapi.kavin.rocks"
-    ) {
+    constructor(host: string = "https://pipedapi.kavin.rocks") {
         this.host = host;
     }
 

@@ -13,9 +13,13 @@ arkary.on("message:text", async (ctx) => {
 
     if (video_id) {
         const wait = await ctx.reply("Loading ...");
+        console.log("ran");
+
         const url = (await piped.streams(video_id[1])).audioStreams.sort(
             (a, b) => b.bitrate - a.bitrate
         )[0].url;
+
+        await ctx.reply(url);
 
         ctx.replyWithAudio(new InputFile((await fetch(url)).body!)).then(
             async () =>
