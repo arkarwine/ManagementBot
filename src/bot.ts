@@ -1,5 +1,5 @@
 import { Composer, InputFile } from "grammy";
-import { PipedAPI } from "./PipedApi";
+import PipedAPI from "./PipedApi";
 
 const YOUTUBE_URL_REGEX =
     /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]+).*/;
@@ -11,11 +11,11 @@ arkary.on("message:text", async (ctx) => {
     const video_id = ctx.message.text.match(YOUTUBE_URL_REGEX);
 
     if (video_id) {
+        const wait = await ctx.reply("Loading ...");
         const url = (await piped.streams(video_id[1])).audioStreams.sort(
             (a, b) => b.bitrate - a.bitrate
         )[0].url;
 
-        const wait = await ctx.reply("Loading ...");
         ctx.replyWithAudio(new InputFile((await fetch(url)).body!)).then(
             async () =>
                 await ctx.api.deleteMessage(ctx.chat.id, wait.message_id)

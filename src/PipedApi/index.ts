@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
     Channel,
     Comments,
@@ -12,9 +11,11 @@ import {
     Video,
 } from "./types";
 
-export class PipedAPI {
+export default class PipedAPI {
     host: string;
-    constructor(host: string = "https://pipedapi.kavin.rocks") {
+    constructor(
+        host: string = "https://api.allorigins.win/raw?url=https://pipedapi.kavin.rocks"
+    ) {
         this.host = host;
     }
 
@@ -24,9 +25,9 @@ export class PipedAPI {
      * @param {string} url - The URL from which to retrieve data.
      * @return {Promise<any>} - A Promise that resolves to the parsed JSON data.
      */
-    private async _get(url: string) {
-        const data = await axios.get(`${this.host}${url}`);
-        return data.data;
+    private async _get<T>(url: string) {
+        const data = await fetch(`${this.host}${url}`);
+        return (await data.json()) as T;
     }
 
     /**
