@@ -25,7 +25,11 @@ arkary.on("message:text", async (ctx) => {
 
         await ctx.api.editMessageText(wait.chat.id, wait.message_id, url);
 
-        ctx.replyWithAudio(new InputFile((await fetch(url)).body!)).then(
+        ctx.replyWithAudio(
+            new InputFile({
+                url: url,
+            })
+        ).then(
             async () =>
                 await ctx.api.deleteMessage(ctx.chat.id, wait.message_id)
         );
