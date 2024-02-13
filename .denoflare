@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.6.0/common/config.schema.json",
+    "scripts": {
+        "arkary": {
+            "path": "./src/server.ts",
+            "bindings": {
+                "BOT_TOKEN": {
+                    "value": "6741337977:AAF1_ah4m5u3lDhUn-SVkBevNOua84EiU6A"
+                }
+            }
+        }
+    },
+    "profiles": {
+        "account1": {
+            "accountId": "42814f6bd20b3602f788e0a07a8fe4b6",
+            "apiToken": "Kii2qGEi_4Oq2gF_wbZgaZNd3hkTR4bK_vGJD-d8"
+        }
+    }
+}

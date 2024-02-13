@@ -23,7 +23,11 @@ arkary.on("message:text", async (ctx) => {
             .filter((value) => value.hasAudio && !value.hasVideo)
             .toSorted((a, b) => b.bitrate! - a.bitrate!)[0].url;
 
-        await ctx.api.editMessageText(wait.chat.id, wait.message_id, url);
+        await ctx.api.editMessageText(
+            wait.chat.id,
+            wait.message_id,
+            "Uploading ..."
+        );
 
         ctx.replyWithAudio(
             new InputFile({

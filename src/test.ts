@@ -1,7 +1,7 @@
 import { videoInfo } from "./types.ts";
 
 const BASE_URL = new URL("https://ytdl-6dsnjfw0t-behs1.vercel.app/");
-const STREAMING_URL = new URL("/api/download?v=soP_KKTkSgI", BASE_URL);
+const STREAMING_URL = new URL("/api/download?v=0Iy9bahS71s", BASE_URL);
 
 const res = await fetch(STREAMING_URL);
 
