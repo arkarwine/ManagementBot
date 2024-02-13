@@ -2,33 +2,21 @@ import {
     Bot,
     webhookCallback,
 } from "https://deno.land/x/grammy@v1.20.3/mod.ts";
-import { UserFromGetMe } from "https://deno.land/x/grammy@v1.20.3/types.ts";
 import { arkary } from "./bot.ts";
 
-interface Environment {
-    BOT_TOKEN: string;
-}
-
-let botInfo: UserFromGetMe | undefined = undefined;
-
-export default {
-    async fetch(request: Request, env: Environment) {
+Deno.serve(async (req) => {
+    if (req.method === "POST") {
         try {
-            const bot = new Bot(env.BOT_TOKEN, { botInfo });
+            const bot = new Bot(Deno.env.get("BOT_TOKEN")!);
             bot.use(arkary);
 
-            if (botInfo === undefined) {
-                await bot.init();
-                botInfo = bot.botInfo;
-            }
+            const handleUpdate = webhookCallback(bot, "std/http");
 
-            const callback = webhookCallback(bot, "cloudflare-mod");
-
-            return await callback(request);
-        } catch (e) {
-            console.log(e.message);
-
-            return new Response(e.message);
+            return await handleUpdate(req);
+        } catch (error) {
+            console.log(error.message);
+            return new Response(error.message);
         }
-    },
-};
+    }
+    return new Response();
+});
