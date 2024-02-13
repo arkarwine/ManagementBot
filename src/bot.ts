@@ -21,7 +21,7 @@ arkary.on("message:text", async (ctx) => {
 
         const url = data.formats
             .filter((value) => value.hasAudio && !value.hasVideo)
-            .toSorted((a, b) => b.bitrate! - a.bitrate!)[0].url;
+            .toSorted((a, b) => b.bitrate! - a.bitrate!)[1].url;
 
         await ctx.api.editMessageText(
             wait.chat.id,
